@@ -55,7 +55,7 @@ public class Server {
 
   /***g
    * Create a database using the json file, use it as data source for a new
-   * UserControllerimport umm3601.user.Database;
+   * UserController import umm3601.user.Database;
 import umm3601.user.UserController;
    *
    * Constructing the controller might throw an IOException if there are problems
