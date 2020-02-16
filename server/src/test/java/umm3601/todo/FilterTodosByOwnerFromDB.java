@@ -29,7 +29,7 @@ public class FilterTodosByOwnerFromDB {
   }
 
   @Test
-  public void listUsersWithAgeFilter() throws IOException {
+  public void listTodosWithOwnerFilter() throws IOException {
     TodoDatabase db = new TodoDatabase("/todos.json");
     Map<String, List<String>> queryParams = new HashMap<>();
 
