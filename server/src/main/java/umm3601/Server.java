@@ -14,8 +14,9 @@ import umm3601.todo.TodoController;
 public class Server {
 
   public static final String CLIENT_DIRECTORY = "../client";
-  public static final String USER_DATA_FILE = "src/main/data/users.json";
-  public static final String TODO_DATA_FILE = "src/main/data/todos.json";
+
+  public static final String USER_DATA_FILE = "/users.json";
+  public static final String TODO_DATA_FILE = "/todos.json";
 
   private static Database userDatabase;
   private static TodoDatabase todoDatabase;
