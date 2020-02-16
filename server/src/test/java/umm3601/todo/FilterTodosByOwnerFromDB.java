@@ -18,7 +18,7 @@ public class FilterTodosByOwnerFromDB {
 
   @Test
   public void filterTodosByOwner() throws IOException {
-    TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
+    TodoDatabase db = new TodoDatabase("/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
 
     Todo[] ownerBarryTodos = db.filterTodosByOwner(allTodos, "Barry");
@@ -30,7 +30,7 @@ public class FilterTodosByOwnerFromDB {
 
   @Test
   public void listUsersWithAgeFilter() throws IOException {
-    TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
+    TodoDatabase db = new TodoDatabase("/todos.json");
     Map<String, List<String>> queryParams = new HashMap<>();
 
     queryParams.put("owner", Arrays.asList(new String[] { "Barry" }));

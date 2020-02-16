@@ -2,6 +2,7 @@ package umm3601.todo;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class TodoDatabase {
   public TodoDatabase(String todoDataFile) throws IOException {
 
     Gson gson = new Gson();
-    FileReader reader = new FileReader(todoDataFile);
+    InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream(todoDataFile));
     allTodos = gson.fromJson(reader, Todo[].class);
   }
 
