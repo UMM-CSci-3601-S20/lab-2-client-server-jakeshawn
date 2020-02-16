@@ -31,23 +31,6 @@ public class TodoDatabase {
   public Todo[] listTodos(Map<String, List<String>> queryParams) {
     Todo[] filteredTodos = allTodos;
 
-    // // Filter age if defined
-    // if (queryParams.containsKey("age")) {
-    // int targetAge = Integer.parseInt(queryParams.get("age").get(0));
-    // filteredUsers = filterUsersByAge(filteredUsers, targetAge);
-    // }
-    // // Filter company if defined
-    // if (queryParams.containsKey("company")) {
-    // String targetCompany = queryParams.get("company").get(0);
-    // filteredUsers = filterUsersByCompany(filteredUsers, targetCompany);
-    // }
-    // Process other query parameters here...
-
-    // public User[] filterUsersByCompany(User[] users, String targetCompany) {
-    // return Arrays.stream(users).filter(x ->
-    // x.company.equals(targetCompany)).toArray(User[]::new);
-    // }
-
     if (queryParams.containsKey("owner")) {
       String targetOwner = queryParams.get("owner").get(0);
       filteredTodos = filterTodosByOwner(filteredTodos, targetOwner);
@@ -70,6 +53,11 @@ public class TodoDatabase {
       filteredTodos = filterTodosByStatus(allTodos, specifiedStatus);
     }
 
+    if (queryParams.containsKey("body")) {
+      String targetBody = queryParams.get("body").get(0);
+      filteredTodos = filterTodosByBody(filteredTodos, targetBody);
+  }
+
     return filteredTodos;
   }
 
@@ -84,7 +72,9 @@ public class TodoDatabase {
     return Arrays.stream(todos).filter(x -> x.status.equals(targetStatus)).toArray(Todo[]::new);
   }
 
-
+  public Todo[] filterTodosByBody(Todo[] todos, String targetBody) {
+    return Arrays.stream(todos).filter(x -> x.body.equals(targetBody)).toArray(Todo[]::new);
+  }
 
 
 }
