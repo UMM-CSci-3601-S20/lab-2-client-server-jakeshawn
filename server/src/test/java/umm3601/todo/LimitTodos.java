@@ -2,16 +2,9 @@ package umm3601.todo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Map;
-
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
-import umm3601.Server;
 
 public class LimitTodos{
     /**
@@ -33,7 +26,6 @@ public class LimitTodos{
         Todo[] testArray = db.limitTodos(400);
 
         assertEquals(300, testArray.length);
-
     }
 
 }
