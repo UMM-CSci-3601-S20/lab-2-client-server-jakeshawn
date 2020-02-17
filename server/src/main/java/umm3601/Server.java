@@ -59,6 +59,8 @@ public class Server {
     server.get("api/todos?contains=ipsum",ctx -> todoController.getTodos(ctx));
 
     server.get("api/todos?owner=Blanche",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?category=groceries",ctx -> todoController.getTodos(ctx));
   }
 
   /***g
