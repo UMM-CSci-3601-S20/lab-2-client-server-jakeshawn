@@ -11,8 +11,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests umm3601.user.Database filterUsersByAge and listUsers with _age_ query
- * parameters
+ * Tests if there is the correct number of todos displayed if that category would be entered into the website
  */
 public class FilterTodosByCategoryFromDB {
 
@@ -22,10 +21,10 @@ public class FilterTodosByCategoryFromDB {
     Todo[] allTodos = db.listTodos(new HashMap<>());
 
     Todo[] categoryVideoGamesTodos = db.filterTodosByCategory(allTodos, "video games");
-    assertEquals(71, categoryVideoGamesTodos.length, "Incorrect number of Todos with body Ipsum");
+    assertEquals(71, categoryVideoGamesTodos.length, "Incorrect number of Todos with category video games");
 
     Todo[] categoryHomeworkTodos = db.filterTodosByCategory(allTodos, "homework");
-    assertEquals(79, categoryHomeworkTodos.length, "Incorrect number of Todos with body  culpa");
+    assertEquals(79, categoryHomeworkTodos.length, "Incorrect number of Todos with category homework");
   }
 
   @Test
@@ -35,10 +34,10 @@ public class FilterTodosByCategoryFromDB {
 
     queryParams.put("category", Arrays.asList(new String[] { "software design" }));
     Todo[] categorySoftwareDesignTodos = db.listTodos(queryParams);
-    assertEquals(74, categorySoftwareDesignTodos.length, "Incorrect number of Todos with owner name Barry");
+    assertEquals(74, categorySoftwareDesignTodos.length, "Incorrect number of Todos with category software design");
 
     queryParams.put("category", Arrays.asList(new String[] { "groceries" }));
     Todo[] categoryGroceriesTodos = db.listTodos(queryParams);
-    assertEquals(76, categoryGroceriesTodos.length, "Incorrect number of Todos with owner name Fry");
+    assertEquals(76, categoryGroceriesTodos.length, "Incorrect number of Todos with category groceries");
   }
 }

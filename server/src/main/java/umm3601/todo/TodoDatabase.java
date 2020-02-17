@@ -30,17 +30,18 @@ public class TodoDatabase {
 
   public Todo[] listTodos(Map<String, List<String>> queryParams) {
     Todo[] filteredTodos = allTodos;
-
+    // Filter by owners if defined
     if (queryParams.containsKey("owner")) {
       String targetOwner = queryParams.get("owner").get(0);
       filteredTodos = filterTodosByOwner(filteredTodos, targetOwner);
     }
-      // Filter category if defined
+    // Filter by category if defined
     if (queryParams.containsKey("category")) {
         String targetCategory = queryParams.get("category").get(0);
         filteredTodos = filterTodosByCategory(filteredTodos, targetCategory);
     }
 
+    // Filter by status if defined
     if (queryParams.containsKey("status")) {
       String targetStatus = queryParams.get("status").get(0);
       boolean specifiedStatus;
@@ -53,10 +54,13 @@ public class TodoDatabase {
       filteredTodos = filterTodosByStatus(allTodos, specifiedStatus);
     }
 
+    // Filter by body if defined
     if (queryParams.containsKey("contains")) {
       String targetBody = queryParams.get("contains").get(0);
       filteredTodos = filterTodosByBody(filteredTodos, targetBody);
     }
+
+    // Restricts the amount of todos that can be displayed if defined
     if(queryParams.containsKey("limit")){
       int targetLimit = Integer.parseInt(queryParams.get("limit").get(0));
       filteredTodos = limitTodos(targetLimit);
