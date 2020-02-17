@@ -56,7 +56,11 @@ public class TodoDatabase {
     if (queryParams.containsKey("body")) {
       String targetBody = queryParams.get("body").get(0);
       filteredTodos = filterTodosByBody(filteredTodos, targetBody);
-  }
+    }
+    if(queryParams.containsKey("limit")){
+      int targetLimit = Integer.parseInt(queryParams.get("limit").get(0));
+      filteredTodos = limitTodos(targetLimit);
+    }
 
     return filteredTodos;
   }
@@ -76,5 +80,12 @@ public class TodoDatabase {
     return Arrays.stream(todos).filter(x -> x.body.equals(targetBody)).toArray(Todo[]::new);
   }
 
+  public Todo[] limitTodos(int limit){
+    Todo[] limitedTodos = new Todo[limit];
+    for(int i=0; i<limit;i++){
+      limitedTodos[i] = allTodos[i];
+    }
+    return limitedTodos;
+  }
 
 }

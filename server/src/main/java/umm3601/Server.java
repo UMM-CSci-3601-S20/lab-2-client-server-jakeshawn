@@ -52,6 +52,8 @@ public class Server {
 
     //Get all to-dos
     server.get("api/todos", ctx -> todoController.getTodos(ctx));
+    //limit amount of todos by query parameter
+    server.get("api/todos?limit=7", ctx -> todoController.getTodos(ctx));
   }
 
   /***g
