@@ -58,9 +58,20 @@ public class Server {
     //endpoint for searching a keyword from the body of a todo
     server.get("api/todos?contains=ipsum",ctx -> todoController.getTodos(ctx));
 
+    // endpoint returning all of the todos that Blanche owns
     server.get("api/todos?owner=Blanche",ctx -> todoController.getTodos(ctx));
 
+    // endpoint returning all of the todos that have the category groceries
     server.get("api/todos?category=groceries",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?orderBy=owner",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?orderBy=category",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?orderBy=status",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?orderBy=contains",ctx -> todoController.getTodos(ctx));
+
   }
 
   /***g
