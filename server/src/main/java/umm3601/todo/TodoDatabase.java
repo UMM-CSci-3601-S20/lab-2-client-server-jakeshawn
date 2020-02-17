@@ -2,7 +2,6 @@ package umm3601.todo;
 
 //import umm3601.todo.Todo.TodoOwnerComparator;
 import umm3601.todo.Todo.*;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -93,8 +92,8 @@ public class TodoDatabase {
     return limitedTodos;
   }
 
-  public Todo[] sortByOwner() throws ClassCastException {
-    final Todo[] result = allTodos.clone();
+  public Todo[] sortByOwner() throws ClassCastException{
+    Todo[] result = allTodos.clone();
 
     Arrays.sort(result, new TodoOwnerComparator());
 
