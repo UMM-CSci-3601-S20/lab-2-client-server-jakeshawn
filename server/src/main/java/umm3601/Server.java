@@ -57,6 +57,8 @@ public class Server {
 
     //endpoint for searching a keyword from the body of a todo
     server.get("api/todos?contains=ipsum",ctx -> todoController.getTodos(ctx));
+
+    server.get("api/todos?owner=Blanche",ctx -> todoController.getTodos(ctx));
   }
 
   /***g
