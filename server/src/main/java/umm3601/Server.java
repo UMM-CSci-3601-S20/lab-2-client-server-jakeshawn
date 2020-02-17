@@ -47,7 +47,7 @@ public class Server {
     // Get specific user
     server.get("api/users/:id", ctx -> userController.getUser(ctx));
 
-    // List users, filtered using query parameters
+    // List users, filtered using query parameters key
     server.get("api/users", ctx -> userController.getUsers(ctx));
 
     //Get all to-dos
@@ -80,7 +80,7 @@ public class Server {
 import umm3601.user.UserController;
    *
    * Constructing the controller might throw an IOException if there are problems
-   * reading from the JSON "database" file. If that happens we'll print out an
+   * reading from the JSON "database" file. If that happens we'll printage out an
    * error message exit the program.
    */
   private static UserController buildUserController() {
