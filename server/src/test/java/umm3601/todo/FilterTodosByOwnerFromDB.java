@@ -11,8 +11,13 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 /**
+<<<<<<< HEAD
  * Tests umm3601.todo.Database
  * Tests if there is the correct number of todos displayed if that owner would be entered into the website
+=======
+ * Tests umm3601.todo.Database filterUsersByAge and listUsers with _age_ query
+ * parameters
+>>>>>>> master
  */
 public class FilterTodosByOwnerFromDB {
 
