@@ -54,6 +54,9 @@ public class Server {
     server.get("api/todos", ctx -> todoController.getTodos(ctx));
     //limit amount of todos by query parameter
     server.get("api/todos?limit=7", ctx -> todoController.getTodos(ctx));
+
+    //endpoint for searching a keyword from the body of a todo
+    server.get("api/todos?contains=ipsum",ctx -> todoController.getTodos(ctx));
   }
 
   /***g
