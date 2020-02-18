@@ -4,15 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.junit.jupiter.api.Test;
 
 
 /**
  * Tests umm3601.todo.Database
- * Tests if there is the correct number of todos displayed if that status would be entered into the website
+ * Tests if all of the todos are displayed by checking that there is 143 true statuses todos and 157 false statuses adding up to a total of 300 todos.
+ * Note that this is the same test as FilterTodosByStatusFromDB.java
  */
-public class FilterTodosByStatusFromDB {
+public class TestAllTodosFromDB {
 
   @Test
   public void filterTodosByStatus() throws IOException {
@@ -25,4 +25,5 @@ public class FilterTodosByStatusFromDB {
     Todo[] statusFalse = db.filterTodosByStatus(allTodos, false);
     assertEquals(157, statusFalse.length, "Incorrect number of Todos with status false");
   }
+
 }

@@ -44,6 +44,7 @@ public class TodoDatabase {
         filteredTodos = filterTodosByCategory(filteredTodos, targetCategory);
     }
 
+    // Filter by status if defined
     if (queryParams.containsKey("status")) {
       String targetStatus = queryParams.get("status").get(0);
       boolean specifiedStatus;
@@ -56,6 +57,7 @@ public class TodoDatabase {
       filteredTodos = filterTodosByStatus(allTodos, specifiedStatus);
     }
 
+    // Filter by body if defined
     if (queryParams.containsKey("contains")) {
       String targetBody = queryParams.get("contains").get(0);
       filteredTodos = filterTodosByBody(filteredTodos, targetBody);

@@ -7,9 +7,10 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
+
 /**
- * Tests umm3601.user.Database filterUsersByAge and listUsers with _age_ query
- * parameters
+ * Tests umm3601.todo.Database
+ * Tests if there is the correct number of todos displayed if that body would be entered into the website
  */
 public class FilterTodosByBodyFromDB {
 
