@@ -1,5 +1,7 @@
 package umm3601.todo;
 
+import java.util.Comparator;
+
 public class Todo{
 
   public String _id;
@@ -8,9 +10,6 @@ public class Todo{
   public String body;
   public String category;
 
-  public String getId() {
-    return _id;
-  }
   public String getOwner(){
     return owner;
   }
@@ -24,32 +23,28 @@ public class Todo{
     return category;
   }
 
-public class TodoOwnerComparator implements Comparable<Todo>{
+public static class TodoOwnerComparator implements Comparator<Todo>{
 
-   @Override
-   public int compareTo(Todo other) {
-     return _id.compareTo(other._id);
+   public int compare(Todo todo1, Todo todo2) {
+     return todo1.getOwner().compareTo(todo2.getOwner());
    }
 }
-public class TodoBodyComparator implements Comparable<Todo>{
+public static class TodoBodyComparator implements Comparator<Todo>{
 
-  @Override
-  public int compareTo(Todo other) {
-    return body.compareTo(other.body);
+  public int compare(Todo todo1, Todo todo2) {
+    return todo1.getBody().compareTo(todo2.getBody());
   }
 }
-public class TodoStatusComparator implements Comparable<Todo>{
+public static class TodoStatusComparator implements Comparator<Todo>{
 
-  @Override
-  public int compareTo(Todo other) {
-    return status.compareTo(other.status);
+  public int compare(Todo todo1, Todo todo2) {
+    return Boolean.compare(todo1.getStatus(), todo2.getStatus());
   }
 }
-public class TodoCategoryComparator implements Comparable<Todo>{
+public static class TodoCategoryComparator implements Comparator<Todo>{
 
-  @Override
-  public int compareTo(Todo other) {
-    return category.compareTo(other.category);
+  public int compare(Todo todo1, Todo todo2) {
+    return todo1.getCategory().compareTo(todo2.getCategory());
   }
 }
 
